@@ -3,11 +3,40 @@ body {
       ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
       IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
    ***/
-    //  background-color: white;
-    //  .content {
-    //   font-size: 14px;
-    //  }
-    //  h1 {
-    //   color: black;
-    //  }
+
+  --dg-filetree-gap:0px;
+  --dg-logo-height:32px;
+
+  .filetree-wrapper {
+    max-width: 250px
+  }
+
+  .banner::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -2;
+  }
+
+  .banner::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image:
+      linear-gradient(to bottom, rgba(138, 92, 245, 0.4), rgb(38, 38, 38));
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
 }

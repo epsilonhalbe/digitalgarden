@@ -1,7 +1,7 @@
 require("dotenv").config();
 const fs = require("fs");
 const crypto = require("crypto");
-const {globSync} = require("glob");
+const { globSync } = require("glob");
 
 const themeCommentRegex = /\/\*[\s\S]*?\*\//g;
 
@@ -26,7 +26,7 @@ async function getTheme() {
       existing.forEach((file) => {
         fs.rmSync(file);
       });
-    } catch {}
+    } catch { }
     let skippedFirstComment = false;
     const data = (await res.text()).replace(themeCommentRegex, (match) => {
       if (skippedFirstComment) {
