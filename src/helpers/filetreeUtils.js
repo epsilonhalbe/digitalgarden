@@ -168,4 +168,4 @@ function getFileTree(data) {
   return fileTree;
 }
 
-exports.getFileTree = getFileTree;
+export { getFileTree };

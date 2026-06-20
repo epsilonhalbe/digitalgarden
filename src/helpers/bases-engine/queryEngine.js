@@ -1,6 +1,6 @@
-const yaml = require("yaml");
-const { parseExpression } = require("./exprParser");
-const { evalExpr, evalFilter } = require("./exprEval");
+import yaml from "yaml";
+import { parseExpression } from "./exprParser.js";
+import { evalExpr, evalFilter } from "./exprEval.js";
 
 /**
  * Get a user property from metadata, checking "dg-note-properties" first.
@@ -406,4 +406,4 @@ function computeSingleSummary(values, summaryType) {
 	}
 }
 
-module.exports = { executeBaseQuery };
+export { executeBaseQuery };

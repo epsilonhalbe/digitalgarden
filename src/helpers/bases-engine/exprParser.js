@@ -1,4 +1,4 @@
-const jsep = require("jsep");
+import jsep from "jsep";
 
 /**
  * Parse an expression string into a jsep AST.
@@ -20,4 +20,4 @@ function parseExpression(expression) {
 	}
 }
 
-module.exports = { parseExpression };
+export { parseExpression };

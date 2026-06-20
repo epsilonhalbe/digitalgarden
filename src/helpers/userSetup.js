@@ -7,5 +7,4 @@ function userEleventySetup(eleventyConfig) {
   // Feel free to add any plugin you want here instead of /.eleventy.js
   eleventyConfig.setUseGitIgnore(false);
 }
-exports.userMarkdownSetup = userMarkdownSetup;
-exports.userEleventySetup = userEleventySetup;
+export { userMarkdownSetup, userEleventySetup };

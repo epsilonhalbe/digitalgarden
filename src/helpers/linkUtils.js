@@ -7,14 +7,8 @@ const iframeSrcRegex = /<iframe[^>]*?src="(\/[^"#]*)"[^>]*?class="canvas-file-if
 // Match ```base code blocks to extract links from bases queries
 const basesBlockRegex = /```base\n([\s\S]*?)```/g;
 
-let basesEngine = null;
-let clearRenderCache = null;
-try {
-  basesEngine = require("./bases-engine");
-  clearRenderCache = require("./basesPlugin").clearRenderCache;
-} catch (e) {
-  // bases-engine not available, skip bases link extraction
-}
+import * as basesEngine from "./bases-engine/index.js";
+import { clearRenderCache } from "./basesPlugin.js";
 
 function extractLinks(content) {
   // Extract iframe sources for canvas embeds
@@ -209,7 +203,7 @@ async function getGraph(data) {
   }
 
   // Store enriched basesNotes for the markdown-it plugin to use
-  exports._basesNotesWithLinks = basesNotes;
+  _basesNotesWithLinks = basesNotes;
 
   return {
     homeAlias,
@@ -218,8 +212,5 @@ async function getGraph(data) {
   };
 }
 
-exports.wikiLinkRegex = wikiLinkRegex;
-exports.internalLinkRegex = internalLinkRegex;
-exports.extractLinks = extractLinks;
-exports.getGraph = getGraph;
-exports._basesNotesWithLinks = null;
+export let _basesNotesWithLinks = null;
+export { wikiLinkRegex, internalLinkRegex, extractLinks, getGraph };

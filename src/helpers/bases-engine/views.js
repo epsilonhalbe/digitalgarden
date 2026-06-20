@@ -532,9 +532,8 @@ function renderViews(queryResult, allNotes) {
 	return html;
 }
 
-module.exports = {
+export {
 	renderViews,
-	// Export helpers for potential reuse
 	escapeHtml,
 	getColumns,
 	getDisplayName,

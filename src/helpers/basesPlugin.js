@@ -1,5 +1,5 @@
-const { executeBaseQuery, renderViews } = require("./bases-engine");
-const linkUtils = require("./linkUtils");
+import { executeBaseQuery, renderViews } from "./bases-engine/index.js";
+import { _basesNotesWithLinks } from "./linkUtils.js";
 
 // Cache rendered HTML keyed by YAML + notes fingerprint to avoid re-rendering
 // identical queries within a single build. Cleared between builds.
@@ -29,7 +29,7 @@ function basesPlugin(md) {
       try {
         // Prefer enriched notes with links/backlinks (from graph builder),
         // fall back to plain notes from the data cascade
-        const notes = linkUtils._basesNotesWithLinks || (env && env.basesNotes) || [];
+        const notes = _basesNotesWithLinks || (env && env.basesNotes) || [];
         return renderBaseBlock(token.content, notes);
       } catch (err) {
         console.error("Error processing base query:", err);
@@ -69,4 +69,4 @@ function escapeHtml(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-module.exports = { basesPlugin, clearRenderCache };
+export { basesPlugin, clearRenderCache };

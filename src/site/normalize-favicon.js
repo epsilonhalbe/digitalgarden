@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
 
 const MAX_DIM = 512;
 
@@ -71,4 +71,4 @@ function normalizeFavicon(inputPath, outputPath) {
   fs.writeFileSync(outputPath, content.replace(svgTag, newSvgTag));
 }
 
-module.exports = normalizeFavicon;
+export default normalizeFavicon;

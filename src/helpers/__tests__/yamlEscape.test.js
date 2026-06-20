@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
 import matter from "gray-matter";
+import { createRequire } from "node:module";
 
-// Resolve js-yaml the same way .eleventy.js does
+const require = createRequire(import.meta.url);
 const jsYaml = require(
 	require.resolve("js-yaml", { paths: [require.resolve("gray-matter")] }),
 );

@@ -1,7 +1,7 @@
-require("dotenv").config();
-const fs = require("fs");
-const crypto = require("crypto");
-const { globSync } = require("glob");
+import "dotenv/config";
+import fs from "node:fs";
+import crypto from "node:crypto";
+import { globSync } from "glob";
 
 const themeCommentRegex = /\/\*[\s\S]*?\*\//g;
 

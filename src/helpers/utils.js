@@ -1,4 +1,4 @@
-const slugify = require("slugify");
+import slugify from "slugify";
 
 function headerToId(heading) {
     var slugifiedHeader = slugify(heading);
@@ -44,8 +44,8 @@ function setAttr(token, attr, value, options) {
 }
 
 //https://github.com/rstacruz/markdown-it-named-headings/blob/master/index.js
-exports.namedHeadingsFilter = function (md, options) {
+export function namedHeadingsFilter(md, options) {
     md.core.ruler.push('named_headings', namedHeadings.bind(null, md));
 }
 
-exports.headerToId = headerToId;
+export { headerToId };

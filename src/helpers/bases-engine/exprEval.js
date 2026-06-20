@@ -1,4 +1,4 @@
-const { parseExpression } = require("./exprParser");
+import { parseExpression } from "./exprParser.js";
 
 /**
  * Get a user-defined property from note metadata.
@@ -499,4 +499,4 @@ function evalFilter(expression, note, formulas) {
 	}
 }
 
-module.exports = { evalExpr, evalFilter };
+export { evalExpr, evalFilter };

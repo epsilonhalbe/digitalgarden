@@ -1,6 +1,6 @@
-const { parseExpression } = require("./exprParser");
-const { evalExpr, evalFilter } = require("./exprEval");
-const { executeBaseQuery } = require("./queryEngine");
-const { renderViews } = require("./views");
+import { parseExpression } from "./exprParser.js";
+import { evalExpr, evalFilter } from "./exprEval.js";
+import { executeBaseQuery } from "./queryEngine.js";
+import { renderViews } from "./views.js";
 
-module.exports = { parseExpression, evalExpr, evalFilter, executeBaseQuery, renderViews };
+export { parseExpression, evalExpr, evalFilter, executeBaseQuery, renderViews };
